@@ -741,6 +741,7 @@
 				00F8EE7D1EDDC2090030BB69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F8EE7E1EDDC2090030BB69 /* Build configuration list for PBXNativeTarget "GiphyClientTests" */ = {
 			isa = XCConfigurationList;
@@ -749,6 +750,7 @@
 				00F8EE801EDDC2090030BB69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F8EE811EDDC2090030BB69 /* Build configuration list for PBXNativeTarget "GiphyClientUITests" */ = {
 			isa = XCConfigurationList;
@@ -757,6 +759,7 @@
 				00F8EE831EDDC2090030BB69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
