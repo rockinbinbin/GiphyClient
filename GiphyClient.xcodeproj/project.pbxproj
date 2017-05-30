@@ -18,6 +18,7 @@
 		00F8EE891EDDC2EE0030BB69 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE881EDDC2EE0030BB69 /* Gif.swift */; };
 		00F8EE8B1EDDC3010030BB69 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE8A1EDDC3010030BB69 /* Extensions.swift */; };
 		00F8EE8D1EDDC31C0030BB69 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE8C1EDDC31C0030BB69 /* GifCollectionViewCell.swift */; };
+		00F8EE931EDDE21F0030BB69 /* ExpandedGifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE921EDDE21F0030BB69 /* ExpandedGifViewController.swift */; };
 		2B34A61A8FB4195A5AC662FE /* Pods_GiphyClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4E57E6E758DE5F3365B7E7 /* Pods_GiphyClientUITests.framework */; };
 		3A7764AC02E383D4B9815442 /* Pods_GiphyClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEA6289F2F34AA0BBCDF978 /* Pods_GiphyClientTests.framework */; };
 		91478EED23A594A0D536804D /* Pods_GiphyClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9596DF54E5EE858E827D9AF9 /* Pods_GiphyClient.framework */; };
@@ -58,6 +59,7 @@
 		00F8EE881EDDC2EE0030BB69 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		00F8EE8A1EDDC3010030BB69 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		00F8EE8C1EDDC31C0030BB69 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
+		00F8EE921EDDE21F0030BB69 /* ExpandedGifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedGifViewController.swift; sourceTree = "<group>"; };
 		15D230BC6FC2E8CD1B893D68 /* Pods-GiphyClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyClient/Pods-GiphyClient.debug.xcconfig"; sourceTree = "<group>"; };
 		4F4CC50B551A7D36DAA50FB2 /* Pods-GiphyClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyClientTests/Pods-GiphyClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		5BEA6289F2F34AA0BBCDF978 /* Pods_GiphyClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphyClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				00F8EE581EDDC2080030BB69 /* ViewController.swift */,
+				00F8EE921EDDE21F0030BB69 /* ExpandedGifViewController.swift */,
 				00F8EE841EDDC2BF0030BB69 /* TabBarViewController.swift */,
 			);
 			name = Controller;
@@ -490,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F8EE931EDDE21F0030BB69 /* ExpandedGifViewController.swift in Sources */,
 				00F8EE591EDDC2080030BB69 /* ViewController.swift in Sources */,
 				00F8EE8B1EDDC3010030BB69 /* Extensions.swift in Sources */,
 				00F8EE851EDDC2BF0030BB69 /* TabBarViewController.swift in Sources */,

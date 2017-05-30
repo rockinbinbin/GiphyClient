@@ -106,14 +106,16 @@ extension ViewController: UISearchControllerDelegate, UISearchBarDelegate {
         var text = searchBar.text
         text = text?.createSearchString()
         let parameters = ["q":text ?? "", "offset":"0", "rating":"pg", "fmt":"json", "sort":"relevant", "limit":"500"] as [String : Any]
-        Model.sharedInstance.getSearchGifs(parameters: parameters as [String : AnyObject])
+        if text != "" {
+            Model.sharedInstance.getSearchGifs(parameters: parameters as [String : AnyObject])
+        }
     }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Model.sharedInstance.isSearching ? Model.sharedInstance.getNumSearchGifs() : Model.sharedInstance.getNumTrendingGifs()
+        return Model.sharedInstance.getNumGifs()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,9 +131,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let json : JSON? = Model.sharedInstance.isSearching ? Model.sharedInstance.searchJSON : Model.sharedInstance.trendingJSON
         let cache : NSCache = Model.sharedInstance.isSearching ? Model.sharedInstance.searchCache : Model.sharedInstance.trendingCache
 
-        guard let json_ = json else {
-            return cell
-        }
+        guard let json_ = json else { return cell }
 
         if let gif = cache.object(forKey: indexPath.row as AnyObject) {
             cell.showGif(gif: gif)
@@ -142,16 +142,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
-
-    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    //        let height = scrollView.frame.size.height
-    //        let contentYoffset = scrollView.contentOffset.y
-    //        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-    //        if distanceFromBottom < height {
-    //            self.searchController.startActivityIndicator()
-    //            Model.sharedInstance.isSearching ? Model.sharedInstance.getNextSearchOffset() : Model.sharedInstance.getNextTrendingOffset()
-    //        }
-    //    }
 }
 
 extension ViewController: CHTCollectionViewDelegateWaterfallLayout {
@@ -171,15 +161,17 @@ extension ViewController: DataDelegate {
     }
 }
 
-extension ViewController: CacheDelegate {
-    func passGif(gif: Gif, row: Int) {
-
+extension ViewController: ViewControllerDelegate {
+    func cacheGif(gif: Gif, row: Int) {
         if Model.sharedInstance.isSearching {
             Model.sharedInstance.searchCache.setObject(gif, forKey: row as AnyObject)
         }
         else {
             Model.sharedInstance.trendingCache.setObject(gif, forKey: row as AnyObject)
         }
+    }
+    func pushGifView(gif: Gif) {
+        self.navigationController?.pushViewController(ExpandedGifViewController(), animated: true)
     }
 }
 

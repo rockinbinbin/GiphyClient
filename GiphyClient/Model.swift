@@ -21,8 +21,9 @@ protocol DataDelegate {
     func passJSON(json: JSON, newSearch: Bool, isSearching: Bool)
 }
 
-protocol CacheDelegate {
-    func passGif(gif: Gif, row: Int)
+protocol ViewControllerDelegate {
+    func cacheGif(gif: Gif, row: Int)
+    func pushGifView(gif: Gif)
 }
 
 public class Model {
@@ -33,7 +34,6 @@ public class Model {
     var searchCache: NSCache<AnyObject, Gif> = NSCache()
 
     var trendingJSON: JSON?
-    var trendingOffset = 0
 
     var searchJSON: JSON?
     var isSearching = false
@@ -46,7 +46,7 @@ public class Model {
             url = URL(string: urlStr)
         }
         else {
-            url = URL(string: (trendingURL + "offset=\(self.trendingOffset)&limit=\(500)\(APIKey)"))
+            url = URL(string: (trendingURL + "&limit=\(500)\(APIKey)"))
         }
 
         guard url != nil else {
@@ -75,7 +75,7 @@ public class Model {
     // TODO: consolidate these methods
     func getTrendingGifs() {
         isSearching = false
-        getPosts(urlStr: (trendingURL + "offset=\(self.trendingOffset)\(APIKey)"), newSearch: false, isSearching: false)
+        getPosts(urlStr: (trendingURL + "\(APIKey)"), newSearch: false, isSearching: false)
     }
 
     func getSearchGifs(parameters: [String: AnyObject]) {
@@ -86,52 +86,12 @@ public class Model {
         getPosts(urlStr: ("\(searchURL)\(parameterString)\(APIKey)"), newSearch: true, isSearching: true)
     }
 
-    //    func getNextTrendingOffset() {
-    //        isSearching = false
-    //        self.trendingOffset = self.trendingOffset + 1
-    //        getPosts(urlStr: (trendingURL + "offset=\(self.trendingOffset)\(APIKey)"), newSearch: false, isSearching: false)
-    //    }
-    //
-    //    func getNextSearchOffset() {
-    //        isSearching = true
-    //        var offset : Int = Int(self.searchParameters!["offset"] as! String)!
-    //        offset = offset + 1
-    //        self.searchParameters?["offset"] = "\(offset)" as AnyObject
-    //        let parameterString = self.searchParameters?.stringFromHttpParameters()
-    //        getPosts(urlStr: ("\(searchURL)\(parameterString ?? "")\(APIKey)"), newSearch: false, isSearching: true)
-    //    }
-
-    func getMediaURLfromJSON(index: Int) -> String? {
-        let this_json = isSearching ? searchJSON : trendingJSON
-        guard this_json != nil else {
-            return nil
-        }
-        guard let response = this_json?["data"][index]["images"]["fixed_width"]["url"].string else {
-            print("Error returning URL from JSON")
-            return nil
-        }
-        return response
-    }
-
-    func getNumTrendingGifs() -> Int {
-        guard let response = self.trendingJSON?["pagination"]["count"].numberValue else {
+    func getNumGifs() -> Int {
+        let json = isSearching ? searchJSON : trendingJSON
+        guard let response = json?["pagination"]["count"].numberValue else {
             return 100
         }
         return Int(response)
-    }
-
-    func getNumSearchGifs() -> Int {
-        guard let offset = searchParameters?["offset"] else {
-            return 0
-        }
-        if Int(offset as! String) == 0 {
-            return 100
-        }
-        var numCells = Int(offset as! String)! * 25
-        if numCells > 100 {
-            numCells = 100
-        }
-        return numCells
     }
 
     func getGifSize(index: Int, gifSize: GifSize) -> CGSize {

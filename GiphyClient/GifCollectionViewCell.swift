@@ -14,7 +14,7 @@ public class GifCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Initialization
 
-    var delegate: CacheDelegate? = nil
+    var delegate: ViewControllerDelegate? = nil
     var gif : Gif?
 
     required public init?(coder aDecoder: NSCoder) {
@@ -28,7 +28,7 @@ public class GifCollectionViewCell: UICollectionViewCell {
 
     private lazy var gifView: FLAnimatedImageView = {
         let gifView = FLAnimatedImageView()
-        gifView.backgroundColor = UIColor.lightGray
+        gifView.backgroundColor = UIColor.darkGray
         return gifView
     }()
 
@@ -36,6 +36,11 @@ public class GifCollectionViewCell: UICollectionViewCell {
         self.contentView.backgroundColor = UIColor.clear
         self.contentView.addSubview(gifView)
         gifView.autoPinEdgesToSuperviewEdges(with: .zero)
+
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(GifCollectionViewCell.singleTapExpand))
+        singleTap.numberOfTapsRequired = 1
+        //singleTap.requireGestureRecognizerToFail(doubleTap)
+        self.addGestureRecognizer(singleTap)
     }
 
     func showGif(gif: Gif) {
@@ -61,7 +66,7 @@ public class GifCollectionViewCell: UICollectionViewCell {
                 UIView.animate(withDuration: 0.5, animations: {
                     self.gifView.alpha = 1
                 })
-                self.delegate?.passGif(gif: gif, row: row)
+                self.delegate?.cacheGif(gif: gif, row: row)
             }
         }
     }
@@ -69,5 +74,12 @@ public class GifCollectionViewCell: UICollectionViewCell {
     func removeGif() {
         self.gifView.animatedImage = nil
         self.gif = nil
+    }
+
+    func singleTapExpand() {
+        guard let gif = self.gif else { return }
+        DispatchQueue.main.async {
+            self.delegate?.pushGifView(gif: gif)
+        }
     }
 }
