@@ -20,12 +20,17 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
 
         let tabOne = ViewController()
-        let tabOneBarItem = UITabBarItem(title: "Featured", image: UIImage(named: "defaultImage.png"), selectedImage: UIImage(named: "selectedImage.png"))
+        let tabOneBarItem = UITabBarItem(title: "Browse", image: UIImage(named: "defaultImage.png"), selectedImage: UIImage(named: "selectedImage.png"))
 
         tabOne.tabBarItem = tabOneBarItem
 
+        let tabTwo = TimelineViewController()
+        let tabTwoBarItem = UITabBarItem(title: "Timeline", image: UIImage(named: "defaultImage.png"), selectedImage: UIImage(named: "selectedImage.png"))
 
-        self.viewControllers = [tabOne]
+        tabOne.tabBarItem = tabOneBarItem
+        tabTwo.tabBarItem = tabTwoBarItem
+
+        self.viewControllers = [tabOne, tabTwo]
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

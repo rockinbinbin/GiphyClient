@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000503351EDE1E1400496CB5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000503341EDE1E1400496CB5 /* TimelineViewController.swift */; };
 		00F8EE571EDDC2080030BB69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE561EDDC2080030BB69 /* AppDelegate.swift */; };
 		00F8EE591EDDC2080030BB69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE581EDDC2080030BB69 /* ViewController.swift */; };
 		00F8EE5E1EDDC2080030BB69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F8EE5D1EDDC2080030BB69 /* Assets.xcassets */; };
@@ -19,6 +20,10 @@
 		00F8EE8B1EDDC3010030BB69 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE8A1EDDC3010030BB69 /* Extensions.swift */; };
 		00F8EE8D1EDDC31C0030BB69 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE8C1EDDC31C0030BB69 /* GifCollectionViewCell.swift */; };
 		00F8EE931EDDE21F0030BB69 /* ExpandedGifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE921EDDE21F0030BB69 /* ExpandedGifViewController.swift */; };
+		00F8EE951EDE1ADD0030BB69 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F8EE941EDE1ADD0030BB69 /* Realm.framework */; };
+		00F8EE961EDE1ADD0030BB69 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F8EE941EDE1ADD0030BB69 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00F8EE991EDE1AE50030BB69 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */; };
+		00F8EE9A1EDE1AE50030BB69 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B34A61A8FB4195A5AC662FE /* Pods_GiphyClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4E57E6E758DE5F3365B7E7 /* Pods_GiphyClientUITests.framework */; };
 		3A7764AC02E383D4B9815442 /* Pods_GiphyClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEA6289F2F34AA0BBCDF978 /* Pods_GiphyClientTests.framework */; };
 		91478EED23A594A0D536804D /* Pods_GiphyClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9596DF54E5EE858E827D9AF9 /* Pods_GiphyClient.framework */; };
@@ -41,7 +46,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		00F8EE971EDE1ADD0030BB69 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				00F8EE9A1EDE1AE50030BB69 /* RealmSwift.framework in Embed Frameworks */,
+				00F8EE961EDE1ADD0030BB69 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		000503341EDE1E1400496CB5 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		00F8EE531EDDC2080030BB69 /* GiphyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F8EE561EDDC2080030BB69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F8EE581EDDC2080030BB69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +81,8 @@
 		00F8EE8A1EDDC3010030BB69 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		00F8EE8C1EDDC31C0030BB69 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
 		00F8EE921EDDE21F0030BB69 /* ExpandedGifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedGifViewController.swift; sourceTree = "<group>"; };
+		00F8EE941EDE1ADD0030BB69 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		15D230BC6FC2E8CD1B893D68 /* Pods-GiphyClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyClient/Pods-GiphyClient.debug.xcconfig"; sourceTree = "<group>"; };
 		4F4CC50B551A7D36DAA50FB2 /* Pods-GiphyClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyClientTests/Pods-GiphyClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		5BEA6289F2F34AA0BBCDF978 /* Pods_GiphyClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphyClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F8EE951EDE1ADD0030BB69 /* Realm.framework in Frameworks */,
 				91478EED23A594A0D536804D /* Pods_GiphyClient.framework in Frameworks */,
+				00F8EE991EDE1AE50030BB69 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +127,8 @@
 		00F8EE4A1EDDC2080030BB69 = {
 			isa = PBXGroup;
 			children = (
+				00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */,
+				00F8EE941EDE1ADD0030BB69 /* Realm.framework */,
 				00F8EE551EDDC2080030BB69 /* GiphyClient */,
 				00F8EE6A1EDDC2090030BB69 /* GiphyClientTests */,
 				00F8EE751EDDC2090030BB69 /* GiphyClientUITests */,
@@ -172,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				00F8EE581EDDC2080030BB69 /* ViewController.swift */,
+				000503341EDE1E1400496CB5 /* TimelineViewController.swift */,
 				00F8EE921EDDE21F0030BB69 /* ExpandedGifViewController.swift */,
 				00F8EE841EDDC2BF0030BB69 /* TabBarViewController.swift */,
 			);
@@ -225,6 +253,8 @@
 				00F8EE511EDDC2080030BB69 /* Resources */,
 				05AF17E7FC48A761D2287860 /* [CP] Embed Pods Frameworks */,
 				11BD89C73132CEDEC81CBC28 /* [CP] Copy Pods Resources */,
+				00F8EE971EDE1ADD0030BB69 /* Embed Frameworks */,
+				000503321EDE1D4700496CB5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -351,6 +381,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		000503321EDE1D4700496CB5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
 		05AF17E7FC48A761D2287860 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000503351EDE1E1400496CB5 /* TimelineViewController.swift in Sources */,
 				00F8EE931EDDE21F0030BB69 /* ExpandedGifViewController.swift in Sources */,
 				00F8EE591EDDC2080030BB69 /* ViewController.swift in Sources */,
 				00F8EE8B1EDDC3010030BB69 /* Extensions.swift in Sources */,
@@ -646,6 +690,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6C68YPM3U8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GiphyClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GiphyClient;
@@ -660,6 +708,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6C68YPM3U8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GiphyClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GiphyClient;
@@ -674,6 +726,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/CHTCollectionViewWaterfallLayout\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FLAnimatedImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PureLayout\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SwiftyJSON\"",
+					$RealmSwift.framework,
+				);
 				INFOPLIST_FILE = GiphyClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GiphyClientTests;
@@ -689,6 +749,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/CHTCollectionViewWaterfallLayout\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FLAnimatedImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PureLayout\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SwiftyJSON\"",
+					$RealmSwift.framework,
+				);
 				INFOPLIST_FILE = GiphyClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GiphyClientTests;
