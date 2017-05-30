@@ -1,0 +1,31 @@
+PODS:
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.6)
+  - FLAnimatedImage (1.0.12)
+  - PureLayout (3.0.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout/Swift (from `git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git`, branch `develop`)
+  - FLAnimatedImage (~> 1.0)
+  - PureLayout
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  CHTCollectionViewWaterfallLayout:
+    :branch: develop
+    :git: git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git
+
+CHECKOUT OPTIONS:
+  CHTCollectionViewWaterfallLayout:
+    :commit: 380cd52ae247b7acc02c57dbf9c2339cee220599
+    :git: git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git
+
+SPEC CHECKSUMS:
+  CHTCollectionViewWaterfallLayout: ab8f957fef7e881c53f736045f68a5cfb1e364ab
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 6a0f0844009e07b48ee634802b329b4ea7f1e8cb
+
+COCOAPODS: 1.2.1
