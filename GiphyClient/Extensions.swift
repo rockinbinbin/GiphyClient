@@ -45,7 +45,7 @@ extension UIViewController {
 
 extension UICollectionView {
     func configureCollectionView() {
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "RepeatingGradient")!)
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "SunriseGradient")!)
         self.showsVerticalScrollIndicator = false
         self.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }

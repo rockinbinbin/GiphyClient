@@ -13,10 +13,12 @@ import SwiftyJSON
 import FLAnimatedImage
 import CHTCollectionViewWaterfallLayout
 
+// Use this view to type Gif caption and post to story
+
 class ExpandedGifViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .darkGray
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SunriseGradient")!)
         self.navigationController?.navigationBar.styleNavBar()
     }
     override func didReceiveMemoryWarning() {

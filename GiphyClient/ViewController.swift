@@ -40,7 +40,6 @@ class ViewController: UIViewController {
 
         createSearchController()
         self.navigationController?.navigationBar.styleNavBar()
-        self.tabBarController?.navigationItem.titleView = self.searchController.searchBar
 
         Model.sharedInstance.dataDelegate = self
 
@@ -75,7 +74,8 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        self.tabBarController?.navigationItem.titleView = nil
+        self.tabBarController?.navigationItem.titleView = self.searchController.searchBar
         if (Model.sharedInstance.trendingJSON == nil) {
             DispatchQueue.global(qos: .default).async {
                 Model.sharedInstance.getTrendingGifs()
