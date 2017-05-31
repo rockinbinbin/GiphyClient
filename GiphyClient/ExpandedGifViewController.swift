@@ -57,14 +57,14 @@ class ExpandedGifViewController: UIViewController, UIScrollViewDelegate, UITextV
         scrollView.autoPinEdgesToSuperviewEdges()
         self.navigationController?.navigationBar.styleNavBar()
 
-        gifView.autoSetDimension(.width, toSize: self.view.frame.size.width)
-        gifView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
-        gifView.autoAlignAxis(toSuperviewAxis: .vertical)
-        self.loadGif(gif: self.gif, gifSize: .original)
-
-        textView.autoPinEdge(.top, to: .bottom, of: gifView, withOffset: 0)
         textView.autoSetDimension(.width, toSize: self.view.frame.size.width)
+        textView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
+        gifView.autoAlignAxis(toSuperviewAxis: .vertical)
+
+        gifView.autoPinEdge(.top, to: .bottom, of: textView, withOffset: 0)
+        gifView.autoSetDimension(.width, toSize: self.view.frame.size.width)
         textView.autoSetDimension(.height, toSize: 150)
+        self.loadGif(gif: self.gif, gifSize: .original)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
