@@ -11,11 +11,11 @@ import UIKit
 import PureLayout
 import SwiftyJSON
 import FLAnimatedImage
-import CHTCollectionViewWaterfallLayout
+import RealmSwift
 
 // Use this view to type Gif caption and post to story
 
-class ExpandedGifViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
+class ExpandedGifViewController: UIViewController {
 
     public init(gif: Gif) {
         self.gif = gif
@@ -55,7 +55,10 @@ class ExpandedGifViewController: UIViewController, UIScrollViewDelegate, UITextV
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SunriseGradient")!)
         self.view.addSubview(scrollView)
         scrollView.autoPinEdgesToSuperviewEdges()
+
         self.navigationController?.navigationBar.styleNavBar()
+        let button1 = UIBarButtonItem(image: UIImage(named: "Send"), style: .plain, target: self, action: #selector(ExpandedGifViewController.sendClicked))
+        self.navigationItem.rightBarButtonItem  = button1
 
         textView.autoSetDimension(.width, toSize: self.view.frame.size.width)
         textView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
@@ -94,5 +97,17 @@ class ExpandedGifViewController: UIViewController, UIScrollViewDelegate, UITextV
                 })
             }
         }
+    }
+
+    func sendClicked() {
+        let post = Post() // why is this throwing an exception?
+        post.date = NSDate()
+
+        if let encryptedData:NSData = try! gif.meta_data.rawData() as NSData {
+            post.gif_data = encryptedData
+        }
+        post.text = textView.text
+        Timeline.sharedInstance.posts.append(post)
+        self.navigationController?.popViewController(animated: true)
     }
 }

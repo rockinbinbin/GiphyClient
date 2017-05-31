@@ -44,14 +44,10 @@ public class Model {
         if isSearching {
             self.searchJSON = nil
             url = URL(string: urlStr)
-        }
-        else {
+        } else {
             url = URL(string: (trendingURL + "&limit=\(500)\(APIKey)"))
         }
-
-        guard url != nil else {
-            return
-        }
+        guard url != nil else { return }
 
         let request = NSMutableURLRequest(url: url!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 5.0)
         request.httpMethod = "GET"
@@ -63,8 +59,7 @@ public class Model {
             }
             if isSearching {
                 self.searchJSON = JSON(data: data)
-            }
-            else {
+            } else {
                 self.trendingJSON = JSON(data: data)
             }
             self.dataDelegate?.passJSON(json: JSON(data: data), newSearch: newSearch, isSearching: isSearching)
@@ -72,7 +67,6 @@ public class Model {
         return
     }
 
-    // TODO: consolidate these methods
     func getTrendingGifs() {
         isSearching = false
         getPosts(urlStr: (trendingURL + "\(APIKey)"), newSearch: false, isSearching: false)

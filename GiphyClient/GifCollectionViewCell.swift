@@ -39,7 +39,6 @@ public class GifCollectionViewCell: UICollectionViewCell {
 
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(GifCollectionViewCell.singleTapExpand))
         singleTap.numberOfTapsRequired = 1
-        //singleTap.requireGestureRecognizerToFail(doubleTap)
         self.addGestureRecognizer(singleTap)
     }
 
