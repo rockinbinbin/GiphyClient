@@ -33,7 +33,6 @@ class TimelineViewController: UIViewController {
 
     func styleNavBar() {
         self.navigationController?.navigationBar.styleNavBar()
-        self.tabBarController?.navigationItem.titleView = nil
         let titleLabel = UILabel()
         let attributes: NSDictionary = [
             NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: 5.0),
@@ -44,7 +43,7 @@ class TimelineViewController: UIViewController {
 
         titleLabel.attributedText = attributedTitle
         titleLabel.sizeToFit()
-        self.tabBarController?.navigationItem.titleView = titleLabel
+        self.navigationItem.titleView = titleLabel
     }
 
     override func didReceiveMemoryWarning() {

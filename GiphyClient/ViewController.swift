@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Model.sharedInstance.dataDelegate = self
+        self.navigationController?.navigationBar.styleNavBar()
 
         createSearchController()
         self.view.addSubview(collectionView)
@@ -71,11 +72,8 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.navigationItem.titleView = nil
+        self.navigationItem.titleView = self.searchController.searchBar
 
-        self.navigationController?.navigationBar.styleNavBar()
-
-        self.tabBarController?.navigationItem.titleView = self.searchController.searchBar
         if (Model.sharedInstance.trendingJSON == nil) {
             DispatchQueue.global(qos: .default).async {
                 Model.sharedInstance.getTrendingGifs()

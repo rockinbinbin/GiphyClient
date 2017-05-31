@@ -19,12 +19,12 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let tabOne = ViewController()
+        let tabOne = UINavigationController(rootViewController: ViewController())
         let tabOneBarItem = UITabBarItem(title: "Browse", image: UIImage(named: "defaultImage.png"), selectedImage: UIImage(named: "selectedImage.png"))
 
         tabOne.tabBarItem = tabOneBarItem
 
-        let tabTwo = TimelineViewController()
+        let tabTwo = UINavigationController(rootViewController: TimelineViewController())
         let tabTwoBarItem = UITabBarItem(title: "Timeline", image: UIImage(named: "defaultImage.png"), selectedImage: UIImage(named: "selectedImage.png"))
 
         tabOne.tabBarItem = tabOneBarItem
