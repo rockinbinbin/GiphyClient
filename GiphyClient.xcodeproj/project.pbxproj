@@ -83,8 +83,8 @@
 		00F8EE8A1EDDC3010030BB69 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		00F8EE8C1EDDC31C0030BB69 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
 		00F8EE921EDDE21F0030BB69 /* ExpandedGifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedGifViewController.swift; sourceTree = "<group>"; };
-		00F8EE941EDE1ADD0030BB69 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		00F8EE941EDE1ADD0030BB69 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Realm.framework; sourceTree = "<group>"; };
+		00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../RealmSwift.framework; sourceTree = "<group>"; };
 		15D230BC6FC2E8CD1B893D68 /* Pods-GiphyClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyClient/Pods-GiphyClient.debug.xcconfig"; sourceTree = "<group>"; };
 		4F4CC50B551A7D36DAA50FB2 /* Pods-GiphyClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyClientTests/Pods-GiphyClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		5BEA6289F2F34AA0BBCDF978 /* Pods_GiphyClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphyClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,8 +129,6 @@
 		00F8EE4A1EDDC2080030BB69 = {
 			isa = PBXGroup;
 			children = (
-				00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */,
-				00F8EE941EDE1ADD0030BB69 /* Realm.framework */,
 				00F8EE551EDDC2080030BB69 /* GiphyClient */,
 				00F8EE6A1EDDC2090030BB69 /* GiphyClientTests */,
 				00F8EE751EDDC2090030BB69 /* GiphyClientUITests */,
@@ -212,6 +210,8 @@
 		00F8EE911EDDC3660030BB69 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				00F8EE941EDE1ADD0030BB69 /* Realm.framework */,
+				00F8EE981EDE1AE50030BB69 /* RealmSwift.framework */,
 				00F8EE561EDDC2080030BB69 /* AppDelegate.swift */,
 				00F8EE621EDDC2080030BB69 /* Info.plist */,
 				00F8EE5D1EDDC2080030BB69 /* Assets.xcassets */,

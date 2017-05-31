@@ -38,6 +38,7 @@ class ExpandedGifViewController: UIViewController {
         let textView: UITextView = UITextView()
         textView.textColor = UIColor.black
         textView.backgroundColor = UIColor.white
+        textView.font = UIFont.systemFont(ofSize: 32, weight: 4)
         self.scrollView.addSubview(textView)
         return textView
     }()

@@ -42,7 +42,7 @@ class TimelineViewController: UIViewController {
         label.textColor = UIColor.black
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: 4)
+        label.font = UIFont.systemFont(ofSize: 32, weight: 4)
         self.gifView.addSubview(label)
         return label
     }()
@@ -81,7 +81,7 @@ class TimelineViewController: UIViewController {
             NSForegroundColorAttributeName: UIColor.EazeBlue(),
             NSKernAttributeName: CGFloat(5)
         ]
-        let attributedTitle = NSAttributedString(string: "M👀D", attributes: attributes as? [String : AnyObject])
+        let attributedTitle = NSAttributedString(string: "TODAY'S M👀D", attributes: attributes as? [String : AnyObject])
         titleLabel.attributedText = attributedTitle
         titleLabel.sizeToFit()
         self.navigationItem.titleView = titleLabel
@@ -109,6 +109,7 @@ class TimelineViewController: UIViewController {
                 UIView.animate(withDuration: 0.5, animations: {
                     self.gifView.alpha = 1
                 })
+                self.label.text = currentPost.text
             }
         }
     }
