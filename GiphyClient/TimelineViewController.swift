@@ -55,6 +55,7 @@ class TimelineViewController: UIViewController {
 
         label.autoPinEdge(toSuperviewEdge: .bottom)
         label.autoAlignAxis(toSuperviewAxis: .vertical)
+        label.autoSetDimension(.width, toSize: self.view.frame.size.width - 10)
         label.sizeToFit()
 
         circleButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 60)
