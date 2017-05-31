@@ -108,6 +108,12 @@ extension ViewController: UISearchControllerDelegate, UISearchBarDelegate {
             Model.sharedInstance.getSearchGifs(parameters: parameters as [String : AnyObject])
         }
     }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        Model.sharedInstance.isSearching = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -144,9 +150,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension ViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        let json : JSON? = Model.sharedInstance.isSearching ? Model.sharedInstance.searchJSON : Model.sharedInstance.trendingJSON
-        guard let json_ = json else { return CGSize(width: 50, height: 50) }
-        return Gif(meta_data: json_).getSize(gifSize: .fixed_width)
+        return Model.sharedInstance.getGifSize(index: indexPath.row, gifSize: .original)
     }
 }
 

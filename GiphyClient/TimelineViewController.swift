@@ -40,7 +40,6 @@ class TimelineViewController: UIViewController {
             NSKernAttributeName: CGFloat(5)
         ]
         let attributedTitle = NSAttributedString(string: "M👀D", attributes: attributes as? [String : AnyObject])
-
         titleLabel.attributedText = attributedTitle
         titleLabel.sizeToFit()
         self.navigationItem.titleView = titleLabel
