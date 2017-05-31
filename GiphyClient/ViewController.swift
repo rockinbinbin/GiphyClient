@@ -37,12 +37,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        createSearchController()
-        self.navigationController?.navigationBar.styleNavBar()
-
         Model.sharedInstance.dataDelegate = self
 
+        createSearchController()
         self.view.addSubview(collectionView)
         setupCollectionView(collectionView: self.collectionView)
 
@@ -75,6 +72,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.titleView = nil
+
+        self.navigationController?.navigationBar.styleNavBar()
+
         self.tabBarController?.navigationItem.titleView = self.searchController.searchBar
         if (Model.sharedInstance.trendingJSON == nil) {
             DispatchQueue.global(qos: .default).async {
@@ -146,7 +146,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension ViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        return Model.sharedInstance.getGifSize(index: indexPath.row, gifSize: .fixed_width)
+        let json : JSON? = Model.sharedInstance.isSearching ? Model.sharedInstance.searchJSON : Model.sharedInstance.trendingJSON
+        guard let json_ = json else { return CGSize(width: 50, height: 50) }
+        return Gif(meta_data: json_).getSize(gifSize: .fixed_width)
     }
 }
 
@@ -171,7 +173,7 @@ extension ViewController: ViewControllerDelegate {
         }
     }
     func pushGifView(gif: Gif) {
-        self.navigationController?.pushViewController(ExpandedGifViewController(), animated: true)
+        self.navigationController?.pushViewController(ExpandedGifViewController(gif: gif), animated: true)
     }
 }
 

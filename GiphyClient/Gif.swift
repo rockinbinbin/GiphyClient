@@ -32,4 +32,13 @@ class Gif: NSObject {
     init(meta_data: JSON) {
         self.meta_data = meta_data
     }
+
+    func getSize(gifSize: GifSize) -> CGSize {
+        let width = meta_data["images"][gifSize.rawValue]["width"].string
+        let height = meta_data["images"][gifSize.rawValue]["height"].string
+        if width == nil || height == nil {
+            return CGSize(width: 50, height: 50)
+        }
+        return CGSize(width: Int(width!)!, height: Int(height!)!)
+    }
 }
