@@ -43,6 +43,7 @@ public class GifCollectionViewCell: UICollectionViewCell {
     }
 
     func showGif(gif: Gif) {
+        self.gif = gif
         DispatchQueue.main.async {
             self.gifView.animatedImage = gif.animated_image
         }
