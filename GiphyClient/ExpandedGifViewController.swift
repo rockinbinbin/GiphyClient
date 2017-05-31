@@ -31,7 +31,6 @@ class ExpandedGifViewController: UIViewController {
     private lazy var gifView: FLAnimatedImageView = {
         let gifView = FLAnimatedImageView()
         gifView.backgroundColor = UIColor.darkGray
-        gifView.alpha = 0.5
         gifView.contentMode = .scaleAspectFill
         self.view.addSubview(gifView)
         return gifView
@@ -41,18 +40,11 @@ class ExpandedGifViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SunriseGradient")!)
         self.navigationController?.navigationBar.styleNavBar()
-        let size = gif.getSize(gifSize: .original)
 
-        if size.width > size.height {
-            gifView.autoSetDimension(.height, toSize: size.height)
-        }
-        else {
-            gifView.autoSetDimension(.width, toSize: size.width)
-        }
+        gifView.autoSetDimension(.width, toSize: self.view.frame.size.width)
         gifView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
-        gifView.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
-        gifView.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
-        self.loadGif(gif: self.gif, gifSize: .fixed_width)
+        gifView.autoAlignAxis(toSuperviewAxis: .vertical)
+        self.loadGif(gif: self.gif, gifSize: .original)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
