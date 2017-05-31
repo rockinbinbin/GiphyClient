@@ -16,7 +16,6 @@ import RealmSwift
 class TimelineViewController: UIViewController {
 
     var posts : NSArray = []
-
     var currentIndex = 0
 
     private lazy var gifView: FLAnimatedImageView = {
@@ -28,7 +27,7 @@ class TimelineViewController: UIViewController {
 
     fileprivate lazy var circleButton: UIButton = {
         let circleButton = UIButton(type: .roundedRect)
-        circleButton.layer.cornerRadius = 20
+        circleButton.layer.cornerRadius = 30
         circleButton.layer.borderColor = UIColor.EazeBlue().cgColor
         circleButton.layer.borderWidth = 2
         circleButton.backgroundColor = UIColor.EazeBlue()
@@ -47,11 +46,10 @@ class TimelineViewController: UIViewController {
         return label
     }()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "UnderwaterGradient")!)
-        gifView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
+        gifView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
         gifView.autoAlignAxis(toSuperviewAxis: .vertical)
         gifView.autoSetDimension(.width, toSize: self.view.frame.size.width)
 
@@ -61,8 +59,8 @@ class TimelineViewController: UIViewController {
 
         circleButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 60)
         circleButton.autoAlignAxis(toSuperviewAxis: .vertical)
-        circleButton.autoSetDimension(.height, toSize: 40)
-        circleButton.autoSetDimension(.width, toSize: 40)
+        circleButton.autoSetDimension(.height, toSize: 60)
+        circleButton.autoSetDimension(.width, toSize: 60)
     }
 
     override func viewWillAppear(_ animated: Bool) {
