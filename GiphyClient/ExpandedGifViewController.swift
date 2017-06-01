@@ -15,7 +15,9 @@ import RealmSwift
 
 // Use this view to type Gif caption and post to story
 
-class ExpandedGifViewController: UIViewController {
+class ExpandedGifViewController: UIViewController, UITextViewDelegate {
+
+    var gif : Gif
 
     public init(gif: Gif) {
         self.gif = gif
@@ -26,8 +28,6 @@ class ExpandedGifViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var gif : Gif
-
     private lazy var scrollView: UIScrollView = {
         let scrollView: UIScrollView = UIScrollView(frame: self.view.frame)
         scrollView.bounces = false
@@ -36,18 +36,24 @@ class ExpandedGifViewController: UIViewController {
 
     private lazy var textView: UITextView = {
         let textView: UITextView = UITextView()
-        textView.textColor = UIColor.black
+        textView.textColor = UIColor.Blue()
         textView.backgroundColor = UIColor.white
-        textView.font = UIFont.systemFont(ofSize: 32, weight: 4)
-        textView.textAlignment = .center
+        textView.font = UIFont.systemFont(ofSize: 18, weight: 2)
+        textView.textAlignment = .left
+        textView.layer.borderColor = UIColor.Purple().cgColor
+        textView.layer.borderWidth = 2
+        textView.delegate = self
+        textView.placeholder = "Log what's up 😎"
         self.scrollView.addSubview(textView)
         return textView
     }()
 
     private lazy var gifView: FLAnimatedImageView = {
         let gifView = FLAnimatedImageView()
-        gifView.backgroundColor = UIColor.darkGray
-        gifView.contentMode = .scaleAspectFill
+        gifView.backgroundColor = UIColor.clear
+        gifView.layer.borderColor = UIColor.Purple().cgColor
+        gifView.layer.borderWidth = 2
+        gifView.contentMode = .scaleToFill
         self.scrollView.addSubview(gifView)
         return gifView
     }()
@@ -62,13 +68,15 @@ class ExpandedGifViewController: UIViewController {
         let button1 = UIBarButtonItem(image: UIImage(named: "Send"), style: .plain, target: self, action: #selector(ExpandedGifViewController.sendClicked))
         self.navigationItem.rightBarButtonItem  = button1
 
-        textView.autoSetDimension(.width, toSize: self.view.frame.size.width)
-        textView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
+        textView.autoSetDimension(.width, toSize: self.view.frame.size.width - 20)
+        textView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
+        textView.autoAlignAxis(toSuperviewAxis: .vertical)
+        textView.autoSetDimension(.height, toSize: 150)
+
+        gifView.autoPinEdge(.top, to: .bottom, of: textView, withOffset: 10)
+        gifView.autoSetDimension(.width, toSize: self.view.frame.size.width - 20)
         gifView.autoAlignAxis(toSuperviewAxis: .vertical)
 
-        gifView.autoPinEdge(.top, to: .bottom, of: textView, withOffset: 0)
-        gifView.autoSetDimension(.width, toSize: self.view.frame.size.width)
-        textView.autoSetDimension(.height, toSize: 150)
         self.loadGif(gif: self.gif, gifSize: .original)
     }
     override func didReceiveMemoryWarning() {

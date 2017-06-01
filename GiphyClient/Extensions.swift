@@ -14,6 +14,12 @@ public extension UIColor {
     class func EazeBlue() -> UIColor {
         return UIColor(red:0.16, green:0.63, blue:0.91, alpha:1.0)
     }
+    class func Purple() -> UIColor {
+        return UIColor(red:0.41, green:0.26, blue:0.85, alpha:1.0)
+    }
+    class func Blue() -> UIColor {
+        return UIColor(red:0.25, green:0.57, blue:0.96, alpha:1.0)
+    }
 }
 
 extension UIViewController {

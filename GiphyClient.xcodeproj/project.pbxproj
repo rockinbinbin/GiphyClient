@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		000503351EDE1E1400496CB5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000503341EDE1E1400496CB5 /* TimelineViewController.swift */; };
 		000503371EDE20EB00496CB5 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000503361EDE20EB00496CB5 /* Timeline.swift */; };
+		00F0AE4F1EDFCEB0003B6F61 /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F0AE4E1EDFCEB0003B6F61 /* UITextViewPlaceholder.swift */; };
 		00F8EE571EDDC2080030BB69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE561EDDC2080030BB69 /* AppDelegate.swift */; };
 		00F8EE591EDDC2080030BB69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F8EE581EDDC2080030BB69 /* ViewController.swift */; };
 		00F8EE5E1EDDC2080030BB69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F8EE5D1EDDC2080030BB69 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		000503341EDE1E1400496CB5 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		000503361EDE20EB00496CB5 /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		00F0AE4E1EDFCEB0003B6F61 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		00F8EE531EDDC2080030BB69 /* GiphyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F8EE561EDDC2080030BB69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F8EE581EDDC2080030BB69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				000503361EDE20EB00496CB5 /* Timeline.swift */,
 				00F8EE881EDDC2EE0030BB69 /* Gif.swift */,
 				00F8EE8A1EDDC3010030BB69 /* Extensions.swift */,
+				00F0AE4E1EDFCEB0003B6F61 /* UITextViewPlaceholder.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				00F8EE891EDDC2EE0030BB69 /* Gif.swift in Sources */,
 				000503371EDE20EB00496CB5 /* Timeline.swift in Sources */,
 				00F8EE8D1EDDC31C0030BB69 /* GifCollectionViewCell.swift in Sources */,
+				00F0AE4F1EDFCEB0003B6F61 /* UITextViewPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
