@@ -1,5 +1,5 @@
 # FIG – iOS Client using the Giphy API
- 😹🔥 FIG – Client app using the Giphy API (http://giphy.com) for trending &amp; search. Create a daily story of GIFs that match your mood. [Swift 3, Realm] 
+ 😹🔥 FIG – Client app using the Giphy API (http://giphy.com) for trending &amp; search. Create a daily story of GIFs that match your mood.
  
 ![alt text](https://raw.githubusercontent.com/rockinbinbin/GiphyClient/master/giphy.gif) 
 ![alt text](https://raw.githubusercontent.com/rockinbinbin/GiphyClient/master/better.gif)
