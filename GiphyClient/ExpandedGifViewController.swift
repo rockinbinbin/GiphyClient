@@ -102,14 +102,20 @@ class ExpandedGifViewController: UIViewController {
     }
 
     func sendClicked() {
-        let post = Post() // why is this throwing an exception?
+        let post = Post()
         post.date = NSDate()
 
         if let encryptedData:NSData = try! gif.meta_data.rawData() as NSData {
             post.gif_data = encryptedData
         }
         post.text = textView.text
-        Timeline.sharedInstance.posts.append(post)
+        //Timeline.sharedInstance.posts.append(post)
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(post)
+        }
+
         self.navigationController?.popViewController(animated: true)
     }
 }
