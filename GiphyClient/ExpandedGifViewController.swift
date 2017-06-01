@@ -67,7 +67,7 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
         self.navigationController?.navigationBar.styleNavBar()
         let button1 = UIBarButtonItem(image: UIImage(named: "Send"), style: .plain, target: self, action: #selector(ExpandedGifViewController.sendClicked))
         self.navigationItem.rightBarButtonItem  = button1
-        self.navigationItem.styleTitleView(str: "Post to Story")
+        self.navigationItem.styleTitleView(str: "POST")
 
         textView.autoSetDimension(.width, toSize: self.view.frame.size.width - 20)
         textView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
