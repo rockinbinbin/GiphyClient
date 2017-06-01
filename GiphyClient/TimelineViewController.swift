@@ -154,7 +154,8 @@ class TimelineViewController: UIViewController {
     }
 
     func nextPressed() {
-        currentIndex = (currentIndex != ((posts?.count)! - 1)) ? currentIndex + 1 : 0
+        guard let posts = posts else { return }
+        currentIndex = (currentIndex != (posts.count - 1)) ? currentIndex + 1 : 0
         getPostsInRealm(index: currentIndex)
     }
 }
