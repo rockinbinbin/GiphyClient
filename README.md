@@ -29,7 +29,7 @@ Open GiphyClient.xcworkspace, and run the app! 😎
 Implemented this app in MVC, using a Model to handle retrieving JSON for trending and search queries. Images are loaded async as needed, and cached in the model. Upon creating a post, Realm (https://realm.io) handles persistent storage & retrieval of today's posts, in descending order by date, like a story in Snapchat or Messenger.
 
 ## Future Considerations:
-* Paging search results (currently loads 500 GIFs fairly quickly) 📃
+* Paging search results is more memory efficient (currently loads 500 GIFs fairly quickly) 📃
 * Error handling 🐞
 * Unit-testing 🤓
 * Consider MVVM / ReactiveCocoa for larger projects
