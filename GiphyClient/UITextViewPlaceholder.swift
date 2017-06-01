@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-//// SOURCE: https://finnwea.com/blog/adding-placeholders-to-uitextviews-in-swift
+//// Source: https://finnwea.com/blog/adding-placeholders-to-uitextviews-in-swift
 
 extension UITextView: UITextViewDelegate {
     override open var bounds: CGRect {
