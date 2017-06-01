@@ -14,8 +14,15 @@ public class GifCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Initialization
 
-    var delegate: ViewControllerDelegate? = nil
     var gif : Gif?
+
+    private lazy var gifView: FLAnimatedImageView = {
+        let gifView = FLAnimatedImageView()
+        gifView.backgroundColor = UIColor.darkGray
+        return gifView
+    }()
+
+    var delegate: ViewControllerDelegate? = nil
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,12 +32,6 @@ public class GifCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setup()
     }
-
-    private lazy var gifView: FLAnimatedImageView = {
-        let gifView = FLAnimatedImageView()
-        gifView.backgroundColor = UIColor.darkGray
-        return gifView
-    }()
 
     private func setup() {
         self.contentView.backgroundColor = UIColor.clear
@@ -50,19 +51,19 @@ public class GifCollectionViewCell: UICollectionViewCell {
     }
 
     func loadGif(gif: Gif, gifSize: GifSize, row: Int) {
-        guard let url = URL(string: gif.meta_data[gifSize.rawValue]["url"].string!) else {
-            return
-        }
-
+        guard let url = URL(string: gif.meta_data[gifSize.rawValue]["url"].string!) else { return }
         if url.absoluteString == "" { return }
         self.gif = gif
 
         DispatchQueue.global(qos: .background).async {
             gif.animated_image = FLAnimatedImage(animatedGIFData: NSData(contentsOf: url)! as Data)
+
             DispatchQueue.main.async {
+
                 guard row == self.tag else { return }
                 self.gifView.alpha = 0
                 self.gifView.animatedImage = gif.animated_image
+
                 UIView.animate(withDuration: 0.5, animations: {
                     self.gifView.alpha = 1
                 })

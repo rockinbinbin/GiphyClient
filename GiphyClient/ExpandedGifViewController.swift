@@ -44,7 +44,7 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
         textView.layer.borderColor = UIColor.Purple().cgColor
         textView.layer.borderWidth = 3
         textView.delegate = self
-        textView.placeholder = "Log what's up 😎"
+        textView.placeholder = "Say what's up 😎"
         self.scrollView.addSubview(textView)
         return textView
     }()
@@ -91,9 +91,7 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
     }
 
     func loadGif(gif: Gif, gifSize: GifSize) {
-        guard let url = URL(string: gif.meta_data[gifSize.rawValue]["url"].string!) else {
-            return
-        }
+        guard let url = URL(string: gif.meta_data[gifSize.rawValue]["url"].string!) else { return }
         if url.absoluteString == "" { return }
         self.gif = gif
 
@@ -113,17 +111,15 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
         let post = Post()
         post.date = NSDate()
 
-        if let encryptedData:NSData = try! gif.meta_data.rawData() as NSData {
+        if let encryptedData : NSData = try! gif.meta_data.rawData() as NSData {
             post.gif_data = encryptedData
         }
         post.text = textView.text
-        //Timeline.sharedInstance.posts.append(post)
 
         let realm = try! Realm()
         try! realm.write {
             realm.add(post)
         }
-
         self.navigationController?.popViewController(animated: true)
     }
 }

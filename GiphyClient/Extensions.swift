@@ -25,33 +25,6 @@ public extension UIColor {
     }
 }
 
-extension UIViewController {
-    var activityIndicatorTag: Int { return 999999 }
-
-    func startActivityIndicator(style: UIActivityIndicatorViewStyle = .gray, location: CGPoint? = nil) {
-        let loc = location ?? self.view.center
-
-        DispatchQueue.main.async() {
-            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: style)
-            activityIndicator.tag = self.activityIndicatorTag
-            activityIndicator.center = loc
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.startAnimating()
-            self.view.addSubview(activityIndicator)
-        }
-    }
-
-    func stopActivityIndicator() {
-        DispatchQueue.main.async {
-            if let activityIndicator = self.view.subviews.filter(
-                { $0.tag == self.activityIndicatorTag}).first as? UIActivityIndicatorView {
-                activityIndicator.stopAnimating()
-                activityIndicator.removeFromSuperview()
-            }
-        }
-    }
-}
-
 extension UICollectionView {
     func configureCollectionView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "SunriseGradient")!)
@@ -69,6 +42,21 @@ extension UINavigationBar {
         self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
+    }
+}
+
+extension UINavigationItem {
+    func styleTitleView() {
+        let titleLabel = UILabel()
+        let attributes: NSDictionary = [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: 5.0),
+            NSForegroundColorAttributeName: UIColor.EazeBlue(),
+            NSKernAttributeName: CGFloat(5)
+        ]
+        let attributedTitle = NSAttributedString(string: "M👀D", attributes: attributes as? [String : AnyObject])
+        titleLabel.attributedText = attributedTitle
+        titleLabel.sizeToFit()
+        self.titleView = titleLabel
     }
 }
 

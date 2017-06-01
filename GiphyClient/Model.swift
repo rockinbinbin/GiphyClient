@@ -34,8 +34,8 @@ public class Model {
     var searchCache: NSCache<AnyObject, Gif> = NSCache()
 
     var trendingJSON: JSON?
-
     var searchJSON: JSON?
+
     var isSearching = false
     var searchParameters: [String: AnyObject]?
 
@@ -82,23 +82,19 @@ public class Model {
 
     func getNumGifs() -> Int {
         let json = isSearching ? searchJSON : trendingJSON
-        guard let response = json?["pagination"]["count"].numberValue else {
-            return 100
-        }
+        guard let response = json?["pagination"]["count"].numberValue else { return 100 }
         return Int(response)
     }
 
     func getGifSize(index: Int, gifSize: GifSize) -> CGSize {
         var json: JSON? = isSearching ? searchJSON : trendingJSON
-        guard json != nil else {
-            return CGSize(width: 50, height: 50)
-        }
+        guard json != nil else { return CGSize(width: 50, height: 50) }
+
         let width = json?["data"][index]["images"][gifSize.rawValue]["width"].string
         let height = json?["data"][index]["images"][gifSize.rawValue]["height"].string
 
-        if width == nil || height == nil {
-            return CGSize(width: 50, height: 50)
-        }
+        guard width != nil && height != nil else { return CGSize(width: 50, height: 50) }
+
         return CGSize(width: Int(width!)!, height: Int(height!)!)
     }
 }
