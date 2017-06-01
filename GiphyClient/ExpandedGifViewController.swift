@@ -31,6 +31,7 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
     private lazy var scrollView: UIScrollView = {
         let scrollView: UIScrollView = UIScrollView(frame: self.view.frame)
         scrollView.bounces = false
+        self.view.addSubview(scrollView)
         return scrollView
     }()
 
@@ -41,7 +42,7 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
         textView.font = UIFont.systemFont(ofSize: 18, weight: 2)
         textView.textAlignment = .left
         textView.layer.borderColor = UIColor.Purple().cgColor
-        textView.layer.borderWidth = 2
+        textView.layer.borderWidth = 3
         textView.delegate = self
         textView.placeholder = "Log what's up 😎"
         self.scrollView.addSubview(textView)
@@ -52,7 +53,7 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
         let gifView = FLAnimatedImageView()
         gifView.backgroundColor = UIColor.clear
         gifView.layer.borderColor = UIColor.Purple().cgColor
-        gifView.layer.borderWidth = 2
+        gifView.layer.borderWidth = 3
         gifView.contentMode = .scaleToFill
         self.scrollView.addSubview(gifView)
         return gifView
@@ -61,7 +62,6 @@ class ExpandedGifViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "SunriseGradient")!)
-        self.view.addSubview(scrollView)
         scrollView.autoPinEdgesToSuperviewEdges()
 
         self.navigationController?.navigationBar.styleNavBar()

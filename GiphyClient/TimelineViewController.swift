@@ -18,9 +18,19 @@ class TimelineViewController: UIViewController {
     var posts : List<Post>?
     var currentIndex = 0
 
+    private lazy var scrollView: UIScrollView = {
+        let scrollView: UIScrollView = UIScrollView(frame: self.view.frame)
+        scrollView.bounces = false
+        self.view.addSubview(scrollView)
+        return scrollView
+    }()
+
     private lazy var gifView: FLAnimatedImageView = {
         let gifView = FLAnimatedImageView()
         gifView.backgroundColor = UIColor.darkGray
+        gifView.layer.borderColor = UIColor.Lime().cgColor
+        gifView.layer.borderWidth = 3
+        self.scrollView.addSubview(gifView)
         return gifView
     }()
 
@@ -31,6 +41,8 @@ class TimelineViewController: UIViewController {
         circleButton.layer.borderWidth = 2
         circleButton.backgroundColor = UIColor.EazeBlue()
         circleButton.addTarget(self, action: #selector(TimelineViewController.nextPressed), for: .touchUpInside)
+        circleButton.layer.borderWidth = 5
+        circleButton.layer.borderColor = UIColor.Purple().cgColor
         self.view.addSubview(circleButton)
         return circleButton
     }()
@@ -40,53 +52,56 @@ class TimelineViewController: UIViewController {
         label.textColor = UIColor.black
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 32, weight: 4)
-        self.view.addSubview(label)
+        label.font = UIFont.systemFont(ofSize: 20, weight: 2)
+        self.scrollView.addSubview(label)
         return label
     }()
 
     fileprivate lazy var timelabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.black
+        label.textColor = UIColor.Purple()
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20, weight: 2)
         label.text = ""
-        self.view.addSubview(label)
+        self.scrollView.addSubview(label)
         return label
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "UnderwaterGradient")!)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        styleNavBar()
-        currentIndex = 0
+        scrollView.autoPinEdgesToSuperviewEdges()
 
         timelabel.autoPinEdge(toSuperviewEdge: .top, withInset: 5)
         timelabel.autoAlignAxis(toSuperviewAxis: .vertical)
         timelabel.sizeToFit()
 
-        self.view.addSubview(gifView)
-        gifView.autoPinEdge(.top, to: .bottom, of: timelabel, withOffset: 5)
+        gifView.autoPinEdge(.top, to: .bottom, of: timelabel, withOffset: 10)
         gifView.autoAlignAxis(toSuperviewAxis: .vertical)
-        gifView.autoSetDimension(.width, toSize: self.view.frame.size.width)
-        gifView.autoSetDimension(.height, toSize: 300)
+        gifView.autoSetDimension(.width, toSize: self.view.frame.size.width - 20)
 
-        //label.autoPinEdge(toSuperviewEdge: .bottom)
-        label.autoPinEdge(.top, to: .bottom, of: gifView, withOffset: 5)
+        label.autoPinEdge(.top, to: .bottom, of: gifView, withOffset: 10)
         label.autoAlignAxis(toSuperviewAxis: .vertical)
-        label.autoSetDimension(.width, toSize: self.view.frame.size.width - 10)
+        label.autoSetDimension(.width, toSize: self.view.frame.size.width - 20)
         label.sizeToFit()
 
         circleButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 60)
         circleButton.autoAlignAxis(toSuperviewAxis: .vertical)
         circleButton.autoSetDimension(.height, toSize: 60)
         circleButton.autoSetDimension(.width, toSize: 60)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        styleNavBar()
+        currentIndex = 0
         getPostsInRealm(index: 0)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.size.height + 50)
     }
 
     func getPostsInRealm(index: Int) {
@@ -95,7 +110,6 @@ class TimelineViewController: UIViewController {
                 let realm = try! Realm()
                 let posts = Timeline.sharedInstance.retrievePostsByDay(day: NSDate(), posts: List(realm.objects(Post.self)))
                 self.posts = posts
-
                 let currentPost : Post = posts[index]
                 let postRef = ThreadSafeReference(to: currentPost)
 
@@ -112,22 +126,19 @@ class TimelineViewController: UIViewController {
                     self.gifView.animatedImage = animated_image
                     UIView.animate(withDuration: 0.5, animations: {
                         self.gifView.alpha = 1
-                        self.gifView.backgroundColor = UIColor.red
                     })
 
                     let realm = try! Realm()
-                    guard let this_post = realm.resolve(postRef) else {
-                        return
-                    }
+                    guard let this_post = realm.resolve(postRef) else { return }
 
                     self.label.text = this_post.text
-                    let calendar = Calendar.current
-                    let hour = calendar.component(.hour, from: this_post.date as Date)
-                    let minutes = calendar.component(.minute, from: this_post.date as Date)
+                    let hour = Calendar.current.component(.hour, from: this_post.date as Date)
+                    let minutes = Calendar.current.component(.minute, from: this_post.date as Date)
+                    let minStr = (minutes < 10) ? "0" + String(minutes) : String(minutes)
                     if hour > 12 {
-                        self.timelabel.text = "Today @ \(hour - 12):\(minutes) pm"
+                        self.timelabel.text = "Today @ \(hour - 12):\(minStr) pm"
                     } else {
-                        self.timelabel.text = "Today @ \(hour):\(minutes) am"
+                        self.timelabel.text = "Today @ \(hour):\(minStr) am"
                     }
                 }
             }
@@ -154,11 +165,7 @@ class TimelineViewController: UIViewController {
     }
 
     func nextPressed() {
-        if currentIndex != ((posts?.count)! - 1) {
-            currentIndex += 1
-        } else {
-            currentIndex = 0
-        }
+        currentIndex = (currentIndex != ((posts?.count)! - 1)) ? currentIndex + 1 : 0
         getPostsInRealm(index: currentIndex)
     }
 }

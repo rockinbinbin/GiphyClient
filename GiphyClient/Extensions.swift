@@ -20,6 +20,9 @@ public extension UIColor {
     class func Blue() -> UIColor {
         return UIColor(red:0.25, green:0.57, blue:0.96, alpha:1.0)
     }
+    class func Lime() -> UIColor {
+        return UIColor(red:0.69, green:0.96, blue:0.25, alpha:1.0)
+    }
 }
 
 extension UIViewController {
