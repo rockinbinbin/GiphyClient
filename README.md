@@ -1,13 +1,13 @@
 # GiphyClient
  😹🔥 FIG – Client app using the Giphy API (http://giphy.com) for trending &amp; search. Create a daily story of GIFs that match your mood. [Swift 3, Realm] 
 
-#Requirements
+## Requirements
 iOS 9.0
 XCode 8
 Swift 3
 Cocoapods
 
-#Run the app
+#### Run the app
 Install dependencies via Cocoapods (http://cocoapods.org):
 
 ```shell
@@ -16,24 +16,24 @@ $ pod install
 
 Open GiphyClient.xcworkspace, and build the app!
 
-#Architecture
+## Architecture
 * [x] MVC
 * [x] Local persistence: Realm (https://realm.io)
 * [x] Protocol Extensions, Generics, Closures, etc..
 * [x] Migrate to Swift 3
 
-#Future Considerations:
+## Future Considerations:
 * [ ] Pagination for search results
 * [ ] Error handling
 * [ ] Unit-tests
 
-#Features
+## Features
 * [x] Trending GIFs
 * [x] Search GIF by term
 * [x] Caching GIFs for fast access
 * [x] Add Gifs to your daily story
 
-#Frameworks
+## Frameworks
 * PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
 * SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON
 * FLAnimatedImage [Performant animated GIF engine for iOS]: https://github.com/Flipboard/FLAnimatedImage
