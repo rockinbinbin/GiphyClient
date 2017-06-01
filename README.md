@@ -35,11 +35,11 @@ Future Considerations:
 * [x] Add Gifs to your daily story
 
 #Frameworks Used
-PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
-SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON
-FLAnimatedImage [Performant animated GIF engine for iOS]: https://github.com/Flipboard/FLAnimatedImage
-Realm [Open-source object database management system]: https://realm.io
-CHTCollectionViewWaterfallLayout: https://github.com/chiahsien/CHTCollectionViewWaterfallLayout
-String / Dictionary Extensions [Percent Encoding, String from HTTP Params]: http://www.ietf.org/rfc/rfc3986.txt
-Search Phrase Extension: https://stackoverflow.com/questions/24200888/any-way-to-replace-characters-on-swift-string
-UITextView Placeholder Extension: https://finnwea.com/blog/adding-placeholders-to-uitextviews-in-swift
+* PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
+* SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON
+* FLAnimatedImage [Performant animated GIF engine for iOS]: https://github.com/Flipboard/FLAnimatedImage
+* Realm [Open-source object database management system]: https://realm.io
+* CHTCollectionViewWaterfallLayout: https://github.com/chiahsien/CHTCollectionViewWaterfallLayout
+* String / Dictionary Extensions [Percent Encoding, String from HTTP Params]: http://www.ietf.org/rfc/rfc3986.txt
+* Search Phrase Extension: https://stackoverflow.com/questions/24200888/any-way-to-replace-characters-on-swift-string
+* UITextView Placeholder Extension: https://finnwea.com/blog/adding-placeholders-to-uitextviews-in-swift
