@@ -1,5 +1,5 @@
 # FIG – iOS Client using the Giphy API
- 😹🔥 FIG – Client app using the Giphy API (http://giphy.com) for trending &amp; search. Create a daily story of GIFs that match your mood.
+🌀 FIG – Client app using the Giphy API (http://giphy.com) for trending &amp; search. Create a daily story of GIFs that match your mood.
  
 ![alt text](https://raw.githubusercontent.com/rockinbinbin/GiphyClient/master/giphy.gif) 
 ![alt text](https://raw.githubusercontent.com/rockinbinbin/GiphyClient/master/better.gif)
@@ -29,9 +29,11 @@ Open GiphyClient.xcworkspace, and run the app! 😎
 Implemented this app in MVC, using a Model to handle retrieving JSON for trending and search queries. Images are loaded async as needed, and cached in the model. Upon creating a post, Realm (https://realm.io) handles persistent storage & retrieval of today's posts, in descending order by date, like a story in Snapchat or Messenger.
 
 ## Future Considerations:
-* Pagination for search results (currently loads 500 GIFs fairly quickly, so spending time on pagination seemed excessive) 📃
-* Error handling (Implemented some error handling and then noticed that it bloated files, for 2 Networking errors / Realm errors to be handled. This would be necessary for a larger project.) Ⓧ
+* Paging search results (currently loads 500 GIFs fairly quickly) 📃
+* Error handling 🐞
 * Unit-testing 🤓
+* Consider MVVM / ReactiveCocoa for larger projects
+* Design for icons, animations, etc.
 
 ## Frameworks
 * PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
