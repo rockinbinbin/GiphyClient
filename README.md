@@ -34,7 +34,7 @@ Future Considerations:
 * [x] Caching GIFs for fast access
 * [x] Add Gifs to your daily story
 
-#Frameworks Used
+*Frameworks:*
 * PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
 * SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON
 * FLAnimatedImage [Performant animated GIF engine for iOS]: https://github.com/Flipboard/FLAnimatedImage
