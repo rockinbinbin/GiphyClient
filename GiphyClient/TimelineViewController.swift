@@ -109,6 +109,7 @@ class TimelineViewController: UIViewController {
             autoreleasepool {
                 let realm = try! Realm()
                 let posts = Timeline.sharedInstance.retrievePostsByDay(day: NSDate(), posts: List(realm.objects(Post.self)))
+                guard posts.count != 0 else { return }
                 self.posts = posts
                 let currentPost : Post = posts[index]
                 let postRef = ThreadSafeReference(to: currentPost)
@@ -132,12 +133,13 @@ class TimelineViewController: UIViewController {
                     guard let this_post = realm.resolve(postRef) else { return }
 
                     self.label.text = this_post.text
-                    let hour = Calendar.current.component(.hour, from: this_post.date as Date)
+                    var hour = Calendar.current.component(.hour, from: this_post.date as Date)
                     let minutes = Calendar.current.component(.minute, from: this_post.date as Date)
                     let minStr = (minutes < 10) ? "0" + String(minutes) : String(minutes)
                     if hour > 12 {
                         self.timelabel.text = "Today @ \(hour - 12):\(minStr) pm"
                     } else {
+                        if hour == 0 { hour = 12 }
                         self.timelabel.text = "Today @ \(hour):\(minStr) am"
                     }
                 }
