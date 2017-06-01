@@ -30,8 +30,9 @@ Implemented this app in MVC, using a Model to handle retrieving JSON for trendin
 
 ## Future Considerations:
 * Paging search results (currently loads 500 GIFs fairly quickly) 📃
-* Error handling Ⓧ
+* Error handling 🐞
 * Unit-testing 🤓
+* Consider MVVM / ReactiveCocoa for larger projects
 
 ## Frameworks
 * PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
