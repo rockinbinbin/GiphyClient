@@ -94,7 +94,8 @@ class TimelineViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        styleNavBar()
+        self.navigationController?.navigationBar.styleNavBar()
+        self.navigationItem.styleTitleView(str: "M👀D")
         currentIndex = 0
         getPostsInRealm(index: 0)
     }
@@ -145,20 +146,6 @@ class TimelineViewController: UIViewController {
                 }
             }
         }
-    }
-
-    func styleNavBar() {
-        self.navigationController?.navigationBar.styleNavBar()
-        let titleLabel = UILabel()
-        let attributes: NSDictionary = [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: 5.0),
-            NSForegroundColorAttributeName: UIColor.EazeBlue(),
-            NSKernAttributeName: CGFloat(5)
-        ]
-        let attributedTitle = NSAttributedString(string: "M👀D", attributes: attributes as? [String : AnyObject])
-        titleLabel.attributedText = attributedTitle
-        titleLabel.sizeToFit()
-        self.navigationItem.titleView = titleLabel
     }
 
     override func didReceiveMemoryWarning() {

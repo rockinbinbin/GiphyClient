@@ -46,14 +46,14 @@ extension UINavigationBar {
 }
 
 extension UINavigationItem {
-    func styleTitleView() {
+    func styleTitleView(str: String) {
         let titleLabel = UILabel()
         let attributes: NSDictionary = [
             NSFontAttributeName: UIFont.systemFont(ofSize: 16, weight: 5.0),
             NSForegroundColorAttributeName: UIColor.EazeBlue(),
             NSKernAttributeName: CGFloat(5)
         ]
-        let attributedTitle = NSAttributedString(string: "M👀D", attributes: attributes as? [String : AnyObject])
+        let attributedTitle = NSAttributedString(string: str, attributes: attributes as? [String : AnyObject])
         titleLabel.attributedText = attributedTitle
         titleLabel.sizeToFit()
         self.titleView = titleLabel
