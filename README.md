@@ -16,25 +16,24 @@ $ pod install
 
 Open GiphyClient.xcworkspace, and build the app!
 
-# What
-*Architecture:*
+#Architecture
 * [x] MVC
 * [x] Local persistence: Realm (https://realm.io)
 * [x] Protocol Extensions, Generics, Closures, etc..
 * [x] Migrate to Swift 3
 
-Future Considerations:
+#Future Considerations:
 * [ ] Pagination for search results
 * [ ] Error handling
 * [ ] Unit-tests
 
-*Features:*
+#Features
 * [x] Trending GIFs
 * [x] Search GIF by term
 * [x] Caching GIFs for fast access
 * [x] Add Gifs to your daily story
 
-*Frameworks:*
+#Frameworks
 * PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
 * SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON
 * FLAnimatedImage [Performant animated GIF engine for iOS]: https://github.com/Flipboard/FLAnimatedImage
