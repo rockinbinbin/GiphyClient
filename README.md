@@ -33,6 +33,7 @@ Implemented this app in MVC, using a Model to handle retrieving JSON for trendin
 * Error handling 🐞
 * Unit-testing 🤓
 * Consider MVVM / ReactiveCocoa for larger projects
+* Design for icons, animations, etc.
 
 ## Frameworks
 * PureLayout [API for iOS & OS X Auto Layout]: https://github.com/PureLayout/PureLayout
