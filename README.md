@@ -2,10 +2,10 @@
  😹🔥 FIG – Client app using the Giphy API (http://giphy.com) for trending &amp; search. Create a daily story of GIFs that match your mood. [Swift 3, Realm] 
 
 ## Requirements
-iOS 9.0
-XCode 8
-Swift 3
-Cocoapods
+* iOS 9.0
+* XCode 8
+* Swift 3
+* Cocoapods
 
 #### Run the app
 Install dependencies via Cocoapods (http://cocoapods.org):
